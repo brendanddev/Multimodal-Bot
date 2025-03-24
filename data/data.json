@@ -1,0 +1,12 @@
+{
+    "questions": [
+        "What is this",
+        "Who made this",
+        "Who are you"
+    ],
+    "answers": [
+        "This is the first version of the Bot. Ask me a question!",
+        "This Bot was developed and created by Brendan Dileo in Python",
+        "Im just a Bot, a form of AI"
+    ]
+}
