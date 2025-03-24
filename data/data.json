@@ -2,11 +2,50 @@
     "questions": [
         "What is this",
         "Who made this",
-        "Who are you"
+        "Who are you",
+        "What do you do",
+        "Do you have a version",
+        "What is a version",
+        "What is Git",
+        "What is GitHub",
+        "What is GitLab",
+        "What is a commit",
+        "What is a repository",
+        "What is a branch",
+        "What is a pull request",
+        "What is a merge",
+        "What is a clone",
+        "What is a fork",
+        "What is a remote repository",
+        "What does origin mean in Git",
+        "What is a Git branch",
+        "What is a push",
+        "What is a pull"
     ],
     "answers": [
         "This is the first version of the Bot. Ask me a question!",
-        "This Bot was developed and created by Brendan Dileo in Python",
-        "Im just a Bot, a form of AI"
+        "This Bot was developed and created by Brendan Dileo in Python.",
+        "I'm just a Bot, a form of AI.",
+        "I respond to your queries based on predefined rules and data.",
+        "Yes, I have a version! It's the first one.",
+        "A version is a specific iteration or state of a project or software at a given point in time.",
+        "Git is a distributed version control system to track changes in files and collaborate on software development.",
+        "GitHub is a platform for hosting Git repositories, collaborating, and managing software projects.",
+        "GitLab is a similar platform to GitHub, providing repository management and DevOps tools.",
+        "A commit is a snapshot of changes made to files in a repository.",
+        "A repository is a directory that contains your project files and the entire Git history.",
+        "A branch is a separate line of development in a repository.",
+        "A pull request is a request to merge changes from one branch into another.",
+        "A merge is the process of combining changes from two branches into one.",
+        "A clone is a copy of a repository that you can work on locally.",
+        "A fork is a personal copy of someone else's repository that you can modify without affecting the original.",
+        "A remote repository is a version of your repository hosted on a server, like GitHub or GitLab.",
+        "Origin is the default name for the remote repository that your local repository is linked to.",
+        "A Git branch is a parallel version of a repository where you can work on changes without affecting the main code.",
+        "A push sends your local changes to a remote repository.",
+        "A pull fetches and merges changes from a remote repository to your local repository."
     ]
 }
+
+
+
