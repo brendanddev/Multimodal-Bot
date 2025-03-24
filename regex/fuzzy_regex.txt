@@ -1,0 +1,25 @@
+
+
+^(what\s+is|whats|describe|tell\s+me\s+about){e<=1}\s+this\s*(chat\s*bot|faq\s*bot|bot)?$
+
+
+        "Who made this",
+        "Who are you",
+        "What do you do",
+        "Do you have a version",
+        "What is a version",
+        "What is Git",
+        "What is GitHub",
+        "What is GitLab",
+        "What is a commit",
+        "What is a repository",
+        "What is a branch",
+        "What is a pull request",
+        "What is a merge",
+        "What is a clone",
+        "What is a fork",
+        "What is a remote repository",
+        "What does origin mean in Git",
+        "What is a Git branch",
+        "What is a push",
+        "What is a pull"
