@@ -7,7 +7,7 @@ def load_json_data():
     Reads questions and answers, and returns two parallel key value lists.
     """
     try:
-        with open("data.json", "r") as file:
+        with open("data/data.json", "r") as file:
             data = json.load(file) 
             print("Data Loaded Successfully!") 
         return data["questions"], data["answers"]

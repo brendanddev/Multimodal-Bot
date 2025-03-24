@@ -2,7 +2,9 @@
 from data.load_data import load_json_data
 
 def understand(utterance):
+    utterance = utterance.lower().strip()
     for i, question in enumerate(intents): 
+        question = question.lower().strip()
         if question == utterance:
             return i
     return -1
