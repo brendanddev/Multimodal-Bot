@@ -38,23 +38,31 @@ def levenshtein_match(utterance, intents):
     best_score = float('inf')
 
     for intent in intents:
-        score = lev.distance(utterance, intent)
-        if score < best_score:
-            best_score = score
+        distance = lev.distance(utterance, intent)
+
+        max_length = max(len(utterance), len(intent))
+        similarity = 1 - (distance / max_length) 
+
+        if distance < best_score and similarity > 0.7:  # ~70% similarity
+            best_score = distance
             best_match = intent
+
     return best_match, best_score
 
 def heuristic_match(utterance, intents, regex_patterns):
     match, score = fuzzy_regex_match(utterance, regex_patterns)
     if match and score > 60:
+        print("Fuzzy Regex Match")
         return regex_patterns.index(match), score
     
     match, score = fuzzy_match(utterance, intents)
     if match and score > 60:
+        print("Fuzzy Match")
         return intents.index(match), score
     
-    match, socre = levenshtein_match(utterance, intents)
+    match, score = levenshtein_match(utterance, intents)
     if match:
+        print("Levenshtein Match")
         return intents.index(match), score 
     
     return -1, 0
