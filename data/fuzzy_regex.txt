@@ -6,5 +6,5 @@
 ^(what\s+is|tell\s+me\s+about|explain)\s+github$
 ^(how)\s+(does|can\s+i)\s+(make)\s+(a)\s+commit{e<=1}$
 ^(how)?\s+can\s+(i|you)\s+(make|create)\s+a\s+(repo|repository){e<=1}$
-^what\s+is\s+a\s+git\s+branch\s*$
-^what\s+are\s+(push\s+and\s+pull|push\s+or\s+pull)\s*$
+^(what\s+is|what|whats)\s+(a|are)\s+(git\s+branch|branch\s+in\s+git)$
+^(what\s+is|what|whats)\s+(a|are)\s+(push\s+and\s+pull|push\s+or\s+pull)\s*(in\s+git)?$
