@@ -22,8 +22,10 @@ def load_json_data():
 
 def load_regex_patterns():
     try:
-        with open("fuzzy_regex.txt", "r") as file:
+        with open("data/fuzzy_regex.txt", "r") as file:
             patterns = file.readlines()
+            for pattern in patterns:
+                 print(pattern)
         return [pattern.strip() for pattern in patterns]
     except FileNotFoundError:
             print(f"Error: The file was not found!")

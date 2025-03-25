@@ -1,0 +1,2 @@
+^(what\s+is|whats)\s+this\s*(bot|chat\s+bot|faq\s+bot)?$
+^who\s+(made|created|developed|designed)\s+this\s*(bot|chat\s+bot|faq\s+bot)?$
