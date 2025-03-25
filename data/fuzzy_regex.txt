@@ -1,0 +1,1 @@
+^(what\s+is|whats|describe|tell\s+me\s+about)\s+this\s*(chat\s+bot|faq\s*bot|bot)?$

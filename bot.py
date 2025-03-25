@@ -1,19 +1,13 @@
 
-from data.load_data import load_json_data
-
-def understand(utterance):
-    utterance = utterance.lower().strip()
-    for i, question in enumerate(intents): 
-        question = question.lower().strip()
-        if question == utterance:
-            return i
-    return -1
+from data.load_data import load_json_data, load_regex_patterns
+from intent import understand
 
 def generate(intent):
     if intent == -1:
         return "Sorry, I don't know the answer to that!"
     return responses[intent]
 
+regex_patterns = load_regex_patterns()
 intents, responses = load_json_data() 
 
 def main():
@@ -27,7 +21,7 @@ def main():
     while True:
         utterance = input(">>>").lower()
 
-        intent = understand(utterance)
+        intent = understand(utterance, intents, regex_patterns)
         response = generate(intent)
         print(response)
         print()
