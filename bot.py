@@ -8,7 +8,6 @@ def generate(intent):
     return responses[intent]
 
 regex_patterns = load_regex_patterns()
-print(regex_patterns)
 intents, responses = load_json_data() 
 
 def main():
