@@ -1,7 +1,9 @@
 
-from sklearn.feature_extraction.text import CountVectorizer
+
+from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import random
+import string
 
 responses = {
     "greeting": ["Hello!", "Hi there!", "Hey! How's it going?"],
@@ -9,23 +11,29 @@ responses = {
     "thank": ["You're welcome!", "No problem!", "Glad to help!"],
     "apology": ["No worries!", "It's okay!", "I understand."],
     "question": ["Hmm, let me think about that...", "That's a great question!", "Let me find out!"],
-    "command": ["Okay, Ill try to do that!", "Got it, processing...", "Ill work on it."],
+    "command": ["Okay, I'll try to do that!", "Got it, processing...", "I'll work on it."],
     "statement": ["Interesting! Tell me more.", "Oh, really?", "That makes sense."]
 }
 
-# Trarining data ishhh for classifying intent
 training_data = {
     "greeting": ["hello", "hi", "hey", "greetings", "morning", "good evening"],
     "goodbye": ["bye", "goodbye", "see you", "farewell", "take care"],
     "thank": ["thanks", "thank you", "appreciate it"],
-    "apology": ["sorry", "apologize", "myn bad", "pardon me"],
+    "apology": ["sorry", "apologize", "my bad", "pardon me"],
     "question": ["what", "how", "when", "where", "why", "is", "do", "can", "could", "would"],
     "command": ["give", "show", "tell", "bring", "help", "give me", "do"],
     "statement": ["I am", "it's", "this is", "they are", "there is", "was", "will be"]
 }
 
+def preprocess_input(user_input):
+    user_input = user_input.translate(str.maketrans('', '', string.punctuation)).lower()
+    return user_input
+
 def classify_statistical_intent(user_input):
-    vectorizer = CountVectorizer().fit_transform([user_input] + [item for sublist in training_data.values() for item in sublist])
+    user_input = preprocess_input(user_input) 
+    
+    vectorizer = TfidfVectorizer().fit([user_input] + [item for sublist in training_data.values() for item in sublist])
+    
     cosine_sim = cosine_similarity(vectorizer[1:], vectorizer[0:1])
     similarity_scores = cosine_sim.flatten()
     max_index = similarity_scores.argmax()
@@ -36,16 +44,17 @@ def classify_statistical_intent(user_input):
                 return label
             max_index -= len(phrases)
 
-    return "statement" 
+    return "statement"  
 
 def generate_statistical_response(intent):
     return random.choice(responses.get(intent, responses["statement"]))
 
 def chatbot():
-    print("Brendan's Statistical Test Bot! (Type 'exit' to quit)")
+    print("Brendan's Enhanced Chatbot! (Type 'exit' to quit)")
 
     while True:
         user_input = input(">>> ")
+        
         if user_input.lower() in ["exit", "quit"]:
             print("Goodbye!")
             break
