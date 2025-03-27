@@ -1,6 +1,12 @@
 
+
 from data.load_data import load_json_data, load_regex_patterns
 from intent import understand
+
+from classify_speech import classify_speech_act, analyze_sentiment, extract_entities
+from statistical import classify_statistical_intent, generate_statistical_response
+
+
 
 def generate(intent):
     if intent == -1:
@@ -21,8 +27,23 @@ def main():
     while True:
         utterance = input(">>>").lower()
 
+        speech_act = classify_speech_act(utterance)  
+        sentiment = analyze_sentiment(utterance)  
+        entities = extract_entities(utterance)
+        stats = classify_statistical_intent(utterance)
+        stats_response = generate_statistical_response(utterance)
+
         intent = understand(utterance, intents, regex_patterns)
         response = generate(intent)
+
+        print(f"Detected Speech Act: {speech_act}")
+        print(f"Sentiment: {sentiment}")
+        print(f"Extracted Entities: {entities}")
+        print(f"Response: {response}\n")
+    
+        print(f"Statistical Response: {stats_response}\n")
+
+
         print(response)
         print()
 
