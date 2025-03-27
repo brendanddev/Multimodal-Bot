@@ -1,3 +1,4 @@
+
 import spacy
 from spacy.matcher import Matcher
 from textblob import TextBlob
@@ -16,7 +17,7 @@ speech_act_patterns = {
     "REQUEST": [
         [{"LOWER": {"IN": ["can", "could", "would", "please"]}}, {"POS": "VERB"}]
     ],
-    "ASSERTION": [[{"POS": "PRON"}, {"POS": "VERB"}]], 
+    "ASSERTION": [[{"POS": "PRON"}, {"POS": "VERB"}]],
 }
 
 for label, pattern in speech_act_patterns.items():
@@ -54,27 +55,33 @@ def analyze_sentiment(utterance):
 
 def extract_entities(utterance):
     doc = nlp(utterance)
-    location_entities = []
-    
+    entity_responses = []
+
     for ent in doc.ents:
-        if ent.label_ == "GPE": 
-            location_entities.append(ent.text)
-    
-    return location_entities
+        if ent.label_ == "ORG":
+            entity_responses.append(f"I do not work for {ent.text}!")
+        elif ent.label_ == "GPE":
+            entity_responses.append(f"Sorry, I've never been to {ent.text}!")
+        elif ent.label_ == "LOCATION":
+            entity_responses.append(f"{ent.text} sounds like a great place! I have never been!")
+        elif ent.label_ == "MONEY":
+            entity_responses.append(f"Im not familiar with currencies like {ent.text}!")
+        elif ent.label_ == "DATE":
+            entity_responses.append(f"I'm not sure when {ent.text} is...")
+        elif ent.label_ == "TIME":
+            entity_responses.append(f"Time? I'm not a clock!")
+        elif ent.label_ == "PERSON":
+            entity_responses.append(f"Ah, {ent.text} sounds important!")
+        elif ent.label_ == "EVENT":
+            entity_responses.append(f"Well, I was not aware of {ent.text}, but I'll take note!")
+        elif ent.label_ == "PRODUCT":
+            entity_responses.append(f"I don't have any details about {ent.text}!")
+        elif ent.label_ == "LANGUAGE":
+            entity_responses.append(f"I don't know how to speak {ent.text}!")
+        elif ent.label_ == "FAC":
+            entity_responses.append(f"{ent.text} sounds cool!")
 
-conversation_memory = {
-    "last_intent": None,
-    "topic": None,
-    "user_name": None
-}
-
-def remember_context(utterance, intent):
-    if intent in ["greeting"]:
-        conversation_memory["last_intent"] = "greeting"
-    elif intent in ["question", "command", "request"]:
-        conversation_memory["topic"] = utterance 
-    elif intent in ["goodbye"]:
-        conversation_memory["last_intent"] = "goodbye"
+    return entity_responses
 
 def generate_response(intent, sentiment, utterance):    
     responses = {
@@ -109,19 +116,18 @@ def chatbot():
         
         intent = classify_speech_act(user_input)
         sentiment = analyze_sentiment(user_input)
-        remember_context(user_input, intent)
         
-        location_entities = extract_entities(user_input)
+        entity_responses = extract_entities(user_input)
         
         # Debugging (TODO: REMOVE ME)
         print("\n--- Debugging Information ---")
         print(f"User Input: {user_input}")
         print(f"Detected Intent: {intent}")
         print(f"Sentiment: {sentiment}")
-        if location_entities:
-            print(f"Location Entities: {', '.join(location_entities)}")
-        else:
-            print("No location entities detected.")
+        
+        if entity_responses:
+            for response in entity_responses:
+                print(f"Entity Response: {response}")
         
         response = generate_response(intent, sentiment, user_input)
         print(f"Response: {response}\n")
