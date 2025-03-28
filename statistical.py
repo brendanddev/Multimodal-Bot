@@ -37,22 +37,29 @@ def classify_statistical_intent(user_input):
     
     # Flatten data
     corpus = [user_input] + [item for sublist in training_data.values() for item in sublist]
+    print(f"\nCorpus: {corpus}") 
     
     # Create TFIDF Vectorizer
     vectorizer = TfidfVectorizer()
     tfidf_matrix = vectorizer.fit_transform(corpus)
+    print(f"TFIDF Matrix Shape: {tfidf_matrix.shape}") 
 
     # Compare input
     cosine_sim = cosine_similarity(tfidf_matrix[0], tfidf_matrix[1:]) 
     similarity_scores = cosine_sim.flatten()
+    print(f"Cosine Similarity Scores: {similarity_scores}")
 
     max_index = similarity_scores.argmax()
+    print(f"Max Index: {max_index}")  
+    
     offset = 0
     for label, phrases in training_data.items():
         if max_index < offset + len(phrases):
+            print(f"[DEBUG] Classified Intent: {label}")
             return label
         offset += len(phrases)
 
+    print("Defaulting to 'statement' intent")
     return "statement"
 
 def generate_statistical_response(intent):
@@ -60,7 +67,6 @@ def generate_statistical_response(intent):
 
 def chatbot():
     print("Brendan's Enhanced Chatbot! (Type 'exit' to quit)")
-
     while True:
         user_input = input(">>> ")
         
