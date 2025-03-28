@@ -32,19 +32,28 @@ def preprocess_input(user_input):
 def classify_statistical_intent(user_input):
     user_input = preprocess_input(user_input) 
     
-    vectorizer = TfidfVectorizer().fit([user_input] + [item for sublist in training_data.values() for item in sublist])
+    # TYPE ERROR FIX ***
+    # vectorizer = TfidfVectorizer().fit([user_input] + [item for sublist in training_data.values() for item in sublist])
     
-    cosine_sim = cosine_similarity(vectorizer[1:], vectorizer[0:1])
+    # Flatten data
+    corpus = [user_input] + [item for sublist in training_data.values() for item in sublist]
+    
+    # Create TFIDF Vectorizer
+    vectorizer = TfidfVectorizer()
+    tfidf_matrix = vectorizer.fit_transform(corpus)
+
+    # Compare input
+    cosine_sim = cosine_similarity(tfidf_matrix[0], tfidf_matrix[1:]) 
     similarity_scores = cosine_sim.flatten()
+
     max_index = similarity_scores.argmax()
-
+    offset = 0
     for label, phrases in training_data.items():
-        if phrases:
-            if max_index < len(phrases):
-                return label
-            max_index -= len(phrases)
+        if max_index < offset + len(phrases):
+            return label
+        offset += len(phrases)
 
-    return "statement"  
+    return "statement"
 
 def generate_statistical_response(intent):
     return random.choice(responses.get(intent, responses["statement"]))
