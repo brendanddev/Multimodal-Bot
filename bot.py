@@ -7,7 +7,6 @@ from classify_speech import classify_speech_act, analyze_sentiment, extract_enti
 from statistical import classify_statistical_intent, generate_statistical_response
 
 
-
 def generate(intent):
     if intent == -1:
         return "Sorry, I don't know the answer to that!"
@@ -26,27 +25,25 @@ def main():
 
     while True:
         utterance = input(">>>").lower()
+        intent = understand(utterance, intents, regex_patterns)
+        response = generate(intent)
 
         speech_act = classify_speech_act(utterance)  
         sentiment = analyze_sentiment(utterance)  
         entities = extract_entities(utterance)
+    
         stats = classify_statistical_intent(utterance)
-        stats_response = generate_statistical_response(utterance)
-
-        intent = understand(utterance, intents, regex_patterns)
-        response = generate(intent)
+        print(f"Classified Statistical Intent: {stats}")
+        stats_response = generate_statistical_response(stats)
+        print(f"Statistical Response: {stats_response}\n")
 
         print(f"Detected Speech Act: {speech_act}")
         print(f"Sentiment: {sentiment}")
         print(f"Extracted Entities: {entities}")
         print(f"Response: {response}\n")
     
-        print(f"Statistical Response: {stats_response}\n")
-
-
         print(response)
         print()
-
 
 if __name__ == "__main__":
     main()
