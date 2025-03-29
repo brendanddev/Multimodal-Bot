@@ -9,7 +9,7 @@ from entities import extract_entities
 from statistical import classify_statistical_intent, generate_statistical_response
 
 
-def generate(intent):
+def generate(intent, score):
     if intent == -1:
         return "Sorry, I don't know the answer to that!"
     return responses[intent]
@@ -27,8 +27,8 @@ def main():
 
     while True:
         utterance = input(">>>").lower()
-        intent = understand(utterance, intents, regex_patterns)
-        response = generate(intent)
+        intent, score = understand(utterance, intents, regex_patterns)
+        response = generate(intent, score)
 
         speech_act = classify_speech_act(utterance)  
         sentiment = analyze_sentiment(utterance)  
