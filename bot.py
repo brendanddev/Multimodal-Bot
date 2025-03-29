@@ -3,7 +3,9 @@
 from data.load_data import load_json_data, load_regex_patterns
 from intent import understand
 
-from classify_speech import classify_speech_act, analyze_sentiment, extract_entities
+from classify_speech import classify_speech_act
+from sentiment import analyze_sentiment
+from entities import extract_entities
 from statistical import classify_statistical_intent, generate_statistical_response
 
 

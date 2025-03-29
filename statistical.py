@@ -1,4 +1,8 @@
 
+"""
+Statistical NLP with TF-IDF and Cosine Similarity for Intent Classification
+Brendan Dileo
+"""
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -31,10 +35,7 @@ def preprocess_input(user_input):
 
 def classify_statistical_intent(user_input):
     user_input = preprocess_input(user_input) 
-    
-    # TYPE ERROR FIX ***
-    # vectorizer = TfidfVectorizer().fit([user_input] + [item for sublist in training_data.values() for item in sublist])
-    
+        
     # Flatten data
     corpus = [user_input] + [item for sublist in training_data.values() for item in sublist]
     print(f"\nCorpus: {corpus}") 
@@ -64,19 +65,3 @@ def classify_statistical_intent(user_input):
 
 def generate_statistical_response(intent):
     return random.choice(responses.get(intent, responses["statement"]))
-
-def chatbot():
-    print("Brendan's Enhanced Chatbot! (Type 'exit' to quit)")
-    while True:
-        user_input = input(">>> ")
-        
-        if user_input.lower() in ["exit", "quit"]:
-            print("Goodbye!")
-            break
-        
-        intent = classify_statistical_intent(user_input)
-        response = generate_statistical_response(intent)
-        print(f"Response: {response}\n")
-
-if __name__ == "__main__":
-    chatbot()

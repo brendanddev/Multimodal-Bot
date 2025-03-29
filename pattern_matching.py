@@ -1,4 +1,9 @@
 
+"""
+Fuzzy String Matching with NLP, Regex, Levenshtein Distance, and Heuristic-Based Pattern Matching
+Brendan Dileo
+"""
+
 from fuzzywuzzy import fuzz
 import Levenshtein as lev
 
