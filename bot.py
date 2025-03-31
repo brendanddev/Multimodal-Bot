@@ -1,20 +1,9 @@
 
-from data.load_data import load_json_data
-from utils.process_text import clean_utterance
-
-def understand(utterance):
-    cleaned_utterance = clean_utterance(utterance)
-    for i, question in enumerate(intents): 
-        if clean_utterance(question) == cleaned_utterance:
-            return i
-    return -1
-
-def generate(intent):
-    if intent == -1:
-        return "Sorry, I don't know the answer to that!"
-    return responses[intent]
+from data.load_data import load_json_data, load_regex_patterns
+from intent import understand, generate
 
 intents, responses = load_json_data() 
+regex_patterns = load_regex_patterns()
 
 def main():
     print("Welcome to Brendan's FAQ Bot!")
@@ -26,8 +15,8 @@ def main():
 
     while True:
         utterance = input(">>>").lower()
-        intent = understand(utterance) 
-        response = generate(intent)
+        intent = understand(utterance, intents, regex_patterns) 
+        response = generate(intent, responses)
         print(response)
         print()
 

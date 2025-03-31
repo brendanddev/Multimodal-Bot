@@ -1,0 +1,10 @@
+^(what\s+is|whats)\s+this\s*(bot|chat\s+bot|faq\s+bot)?$
+^who\s+(made|created|developed|designed){e<=1}\s+this\s*(bot|chat\s+bot|faq\s+bot)?$
+^(who|what)\s+are\s+you$
+^what\s+(are|do)\s+you\s+(do|doing)$
+^(what\s+is|tell\s+me\s+about|explain)\s+git$
+^(what\s+is|tell\s+me\s+about|explain)\s+github$
+^(how)\s+(does|can\s+i)\s+(make)\s+(a)\s+commit{e<=1}$
+^(how)?\s+can\s+(i|you)\s+(make|create)\s+a\s+(repo|repository){e<=1}$
+^(what\s+is|what|whats)\s+(a|are)\s+(git\s+branch|branch\s+in\s+git)$
+^(what\s+is|what|whats)\s+(a|are)\s+(push\s+and\s+pull|push\s+or\s+pull)\s*(in\s+git)?$
