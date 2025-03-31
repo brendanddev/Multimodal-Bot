@@ -1,0 +1,52 @@
+# Ignore the keys directory and environment files
+keys/
+.env
+*.env
+.env.local
+.env.development
+.env.production
+
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignore virtual environment directories
+venv/
+env/
+ENV/
+.venv/
+
+# Ignore build and distribution files
+build/
+dist/
+*.egg-info/
+*.egg
+*.whl
+
+# Ignore IDE-specific files
+.vscode/
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+*.bak
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore pytest cache
+.pytest_cache/
+
+# Ignore coverage reports
+.coverage
+htmlcov/
+
+# Ignore mypy cache
+.mypy_cache/
+
+# Ignore macOS specific files
+.DS_Store
+
+# Ignore Windows specific files
+Thumbs.db
