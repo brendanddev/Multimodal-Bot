@@ -1,15 +1,12 @@
 from utils.process_text import clean_utterance
+from utils.pattern_matching import heuristic_match
 import regex as re
 
 
 def understand(utterance, intents, regex_patterns):
     cleaned_utterance = clean_utterance(utterance)
-    for i, pattern in enumerate(regex_patterns):
-        if re.match(pattern, cleaned_utterance):
-            return i
-    return -1
-    
-
+    intent = heuristic_match(cleaned_utterance, intents, regex_patterns)
+    return intent 
 
 def generate(intent, responses):
     if intent == -1:
