@@ -4,9 +4,6 @@ from data.load_data import load_json_data
 from intent import understand, generate
 intents, responses = load_json_data() 
 
-
-
-
 def main():
     print("Welcome to Brendan's Multimodal Bot!")
     print()

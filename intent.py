@@ -7,8 +7,14 @@ question from a list of predefined responses using basic string matching.
 Brendan Dileo, April 2025
 """
 
+from utils.process_text import clean_utterance
+
 def understand(utterance, intents):
     """ Processes an utterance to determine if an intent matches"""
+    cleaned_utterance = clean_utterance(utterance)
+    print(f"Initial Utterance {utterance}")         # DEBUG
+    print(f"Cleaned Utterance {cleaned_utterance}") # DEBUG
+
     try:
         return intents.index(utterance)
     except ValueError: 
