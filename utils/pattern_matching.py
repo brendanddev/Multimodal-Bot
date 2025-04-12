@@ -76,11 +76,11 @@ def levenshtein_match(utterance, intents):
         
         # Threshold for distance to reduce false positive matches
         if best_score < 3.5:
-        if best_match:
             print(f"Best Levenshtein match: '{best_match}' with distance {best_score}")
+            return best_match, best_score
         else:
             print("No Levenshtein match found.")
-    return best_match, best_score
+            return None, best_score
 
 
 def heuristic_match(utterance, intents, regex_patterns):
