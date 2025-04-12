@@ -7,6 +7,7 @@ Brendan Dileo, April 2025
 from utils.process_text import clean_utterance
 import regex as re
 from fuzzywuzzy import fuzz
+import Levenshtein as levenshtein
 
 
 def regex_match(utterance, regex_patterns):
@@ -58,9 +59,30 @@ def fuzzy_match(utterance, intents):
 
     return best_match, best_score
 
+def levenshtein_match(utterance, intents):
+    """ Levenshtein distance to find the difference between two strings """
+    best_match = None 
+    best_score = float('inf')
+
+    # Go through intents
+    for intent in intents:
+        distance = levenshtein.distance(utterance, intent)
+        
+        # Find smallest distance
+        if distance < best_score:
+            best_score = distance
+            best_match = intent
+            print(f"[DEBUG] New best match found: '{best_match}' with distance {best_score}")
+
+        if best_match:
+            print(f"Best Levenshtein match: '{best_match}' with distance {best_score}")
+        else:
+            print("No Levenshtein match found.")
+    return best_match, best_score
 
 
 def heuristic_match(utterance, intents, regex_patterns):
+    """ Combines each approach to determine the best possible match """
     cleaned = clean_utterance(utterance)
 
     # Try regex matching
@@ -72,5 +94,9 @@ def heuristic_match(utterance, intents, regex_patterns):
     fuzz_match, fuzz_score = fuzzy_match(cleaned, intents)
     if fuzz_match and fuzz_score > 60:      # Check this 
         return intents.index(fuzz_match)
+    
+    lev_match, lev_score = levenshtein_match(cleaned, intents)
+    if lev_match:
+        return intents.index(lev_match)
     
     return -1
