@@ -3,24 +3,31 @@
         "What is this",
         "Who made this",
         "Who are you",
-        "What do you do",
-        "What is Git",
-        "What is GitHub",
-        "How does one make a commit",
-        "Can I create a repository",
-        "What is a Git branch",
-        "What are push and pull"
+        "What is NLP",
+        "What is a Chatbot",
+        "What are regular expressions",
+        "What is Linguistic Knowledge",
+        "What is Statistical NLP",
+        "What are Neural Networks",
+        "What are Neural Word Embeddings",
+        "What are Large Language Models",
+        "Is there a difference between Machine Learning and LLMs",
+        "What is Problem Solving as State Space Search"
     ],
     "answers": [
         "This is a simple bot designed to help answer your questions. Im currently on my first version (v0.0.1), feel free to ask me anything!",
         "This bot was created and developed by Brendan Dileo as part of a personal project using Python.",
-        "I'm an AI bot created to assist with various questions and provide helpful information based on predefined rules.",
-        "I process your questions and respond based on a set of rules and data I've been trained on.",
-        "Git is a distributed version control system that helps track changes in your files and facilitates collaboration in software development.",
-        "GitHub is a web-based platform where developers can host Git repositories, collaborate with others, and manage software projects.",
-        "To make a commit in Git, you use the command git commit -m 'your message' after staging your changes with git add. This captures the changes and adds them to your project's history.",
-        "Yes, you can create a repository by using the command git init to initialize a new repository in your project directory, or by creating one on GitHub or any other Git hosting service.",
-        "A Git branch is a separate line of development that allows you to work on different features or fixes without affecting the main codebase (often called main or master)",
-        "A push is when you upload your local changes to a remote Git repository. A pull is when you fetch and merge changes from a remote repository to your local copy."
+        "I'm an AI bot created to assist with various questions and provide helpful information based on predefined rules. I process your questions and respond based on a set of rules and data I've been trained on.",
+        "Natural Language Processing (NLP) is a field of AI that focuses on the interaction between computers and human language, allowing machines to understand, interpret, and generate text.",
+        "A chatbot is typically an AI program designed to simulate conversation with users, ussually through text or voice, to answer questions or help with tasks.",
+        "Regular Expressions (Regex) are patterns used to match character combinations in strings, commonly used for text searching, validation, and manipulation.",
+        "Linguistic Knowledge refers to the understanding of grammar, syntax, semantics, and context of language to process and analyze text effectively.",
+        "Statistical NLP uses statistical methods to model and analuze linguistic patterns, allowing machines to make predictions or decisions based on language data.",
+        "Neural Networks are computational models inspired by the human brain, used to recognize patterns in data by learning from example.",
+        "Neural Word Embeddings are a technique used in NLP where words are represented as vectors in a high-dimensional space, capturing semantic relationships between words.",
+        "Large Language Models (LLMs) are deep learning models trained on vast amount of text to generate human like responses and perform various language tasks like translation, summarization, and question answering.",
+        "Machine Learning (ML) involves algorithms that learn from data to make predictions or decisions. LLMs are a specific type of ML model that focuses on natural language tasks, using large-scale training datasets.",
+        "Problem Solving as State Space Search involves modeling problems as a search through different states or configurations, where the goal is to find a path from the initial state to the goal state using various search algorithms."
+
     ]
 }

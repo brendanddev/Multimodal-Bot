@@ -1,1 +1,7 @@
-^what\s+is\s+this$
+^(what\s+is|whats)\s+this\s*(bot|chat\s+bot|faq\s+bot|multimodal\s+bot)?$
+^(who|what)\s+(made|created|developed)\s+this\s*(bot|chat\s+bot|faq\s+bot|multimodal\s+bot)?$
+^(who|what)\s+(are|is)\s+you$
+^what\s+(is|does)\s+(nlp|natural\s+language\s+processing)\s*(do)?$
+^(what|who)\s+is\s+a\s+(chat\s*bot|talk\s*bot|conversational\s+agent)$
+^what\s+(are|is)\s+(regex|regular\s+expressions|regexp)$
+^what\s+(is|does)\s+linguistic\s+knowledge\s*(do)?$
