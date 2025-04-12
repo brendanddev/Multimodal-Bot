@@ -1,4 +1,6 @@
 
+# Ignore notes file
+notes.txt
 
 # Ignore keys directory and envrioment files
 keys/
@@ -12,3 +14,9 @@ keys/
 
 # Ignore macOS files (When developing on macOS)
 .DS_Store
+
+
+# Ignore python cache files
+__pycache__/
+*.py[cod]
+*$py.class
