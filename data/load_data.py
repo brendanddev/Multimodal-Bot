@@ -1,4 +1,11 @@
-# load_data.py
+""" 
+load_data.py
+
+This script reads json data.
+
+Brendan Dileo, April 2025
+"""
+
 import json 
 
 def load_json_data():
@@ -14,3 +21,17 @@ def load_json_data():
     except Exception as e:
         print(f"An unexpected error occurred: {e}")
         return [], []
+
+
+def load_regex_patterns():
+    try:
+        with open("data/fuzzy_regex.txt", "r") as file:
+            patterns = file.readlines()
+            for pattern in patterns:
+                print(pattern)
+        return [pattern.strip() for pattern in patterns]
+    except FileNotFoundError:
+            print(f"Error: The file was not found!")
+    except Exception as e:
+            print(f"An unexpected error occurred while loading the patterns: {e}")
+    return []
