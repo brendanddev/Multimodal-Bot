@@ -20,7 +20,7 @@ def main():
     # basic control loop for terminal interactions
     while True:
         utterance = input(">>>")
-        intent = understand(utterance, regex_patterns)
+        intent = understand(utterance, intents, regex_patterns)
         response = generate(intent, responses)
         print(response)
         print()

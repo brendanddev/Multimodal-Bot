@@ -8,12 +8,12 @@ Brendan Dileo, April 2025
 """
 
 from utils.process_text import clean_utterance
-from utils.pattern_matching import regex_match
+from utils.pattern_matching import regex_match, fuzzy_match, heuristic_match
 
-def understand(utterance, regex_patterns):
+def understand(utterance, intents, regex_patterns):
     """ Processes an utterance to determine if an intent matches"""
     cleaned_utterance = clean_utterance(utterance)
-    intent = regex_match(cleaned_utterance, regex_patterns)
+    intent = heuristic_match(cleaned_utterance, intents, regex_patterns)
     return intent 
 
 def generate(intent, responses):
