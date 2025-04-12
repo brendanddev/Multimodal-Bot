@@ -1,0 +1,14 @@
+
+
+# Ignore keys directory and envrioment files
+keys/
+.env
+*.env
+.env.local
+.env.development
+.env.production
+
+# TODO: ADD WINDOWS FILES IGNORE 
+
+# Ignore macOS files (When developing on macOS)
+.DS_Store
