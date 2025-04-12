@@ -13,9 +13,6 @@ from utils.pattern_matching import regex_match
 def understand(utterance, regex_patterns):
     """ Processes an utterance to determine if an intent matches"""
     cleaned_utterance = clean_utterance(utterance)
-    print(f"Initial Utterance {utterance}")         # DEBUG
-    print(f"Cleaned Utterance {cleaned_utterance}") # DEBUG
-
     intent = regex_match(cleaned_utterance, regex_patterns)
     return intent 
 

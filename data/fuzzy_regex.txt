@@ -4,4 +4,4 @@
 ^what\s+(is|does)\s+(nlp|natural\s+language\s+processing)\s*(do)?$
 ^(what|who)\s+is\s+a\s+(chat\s*bot|talk\s*bot|conversational\s+agent)$
 ^what\s+(are|is)\s+(regex|regular\s+expressions|regexp)$
-^what\s+(is|does)\s+linguistic\s+knowledge\s*(do)?$
+^what\s+(is|does)\s+(linguistic\s+knowledge){e<=2}\s*(do)?$
