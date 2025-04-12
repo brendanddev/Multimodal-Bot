@@ -73,7 +73,9 @@ def levenshtein_match(utterance, intents):
             best_score = distance
             best_match = intent
             print(f"[DEBUG] New best match found: '{best_match}' with distance {best_score}")
-
+        
+        # Threshold for distance to reduce false positive matches
+        if best_score < 3.5:
         if best_match:
             print(f"Best Levenshtein match: '{best_match}' with distance {best_score}")
         else:
