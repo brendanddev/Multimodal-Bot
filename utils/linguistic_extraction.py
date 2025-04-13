@@ -17,6 +17,26 @@ def extract_linguistics(utterance):
     print(" --- Tokens and POS --- ")
     for token in doc:
         print(f"{token.text:<15} POS: {token.pos_}")
+    
+    # Noun Chunks
+    print(" --- Noun Chunks --- ")
+    for chunk in doc.noun_chunks:
+        print(f"{chunk.text}")
+
+    # Named Entitiy Recognition (NER)
+    print("\n --- Entities --- ")
+    for ent in doc.ents:
+        print(ent.text, ent.label_)
+
+    # Lemmatization and Lemmas
+    print("\n --- Lemmas --- ")
+    for token in doc:
+        print(token.text, "->", token.lemma_)
+
+    # Dependency Parsing
+    print("\n --- Dependency Parsing --- ")
+    for token in doc:
+        print(f"{token.text} <--{token.dep_}-- {token.head.text}")
 
 
 if __name__ == "__main__":
