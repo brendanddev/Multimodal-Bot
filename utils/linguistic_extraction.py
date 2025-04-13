@@ -37,8 +37,3 @@ def extract_linguistics(utterance):
     print("\n --- Dependency Parsing --- ")
     for token in doc:
         print(f"{token.text} <--{token.dep_}-- {token.head.text}")
-
-
-if __name__ == "__main__":
-    user_input = input("Please enter a sentence for linguistic analysis: ")
-    extract_linguistics(user_input)
