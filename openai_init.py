@@ -22,14 +22,3 @@ def get_openai_response(utterance):
     except Exception as e:
         print(f"Error occurred while fetching response: {e}")
         return "Sorry, something went wrong while processing your request."
-   
-# DEBUG TESTING 
-def test_openai():
-    test_input = "Hello, how are you today?"
-    print(f"User: {test_input}")
-    
-    response = get_openai_response(test_input)
-    print(f"Bot: {response}")
-
-if __name__ == "__main__":
-    test_openai()
