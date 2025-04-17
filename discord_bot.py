@@ -9,6 +9,7 @@ from bot import generate, understand, intents, responses, regex_patterns
 from config import DISCORD_TOKEN
 from utils.process_text import clean_utterance
 from datetime import datetime
+from utils.graphs import generate_graph, generate_time_complexity_graph
 
 
 # MyClient class def
@@ -99,7 +100,19 @@ class MyClient(discord.Client):
                 latency = round(self.latency * 1000)
                 await message.channel.send(f"Latency: `{latency}ms`")
                 return
-
+            elif cmd == "graph":
+                buffer = generate_graph(10, 100, 10)
+                file = discord.File(fp=buffer, filename="graph.png")
+                await message.channel.send("Heres your **Graph** 📊", file=file)
+                buffer.close()
+                return
+            # Time complexity graph
+            elif cmd == "graph tc":
+               buffer = generate_time_complexity_graph()
+               file = discord.File(fp=buffer, filename="tc_graph.png")
+               await message.channel.send("Here's the **Time Complexity Graph** 📊", file=file)
+               buffer.close()
+               return
             else:
                 await message.channel.send("Sorry, I don't recognize that command!")
         # Regular utterance
