@@ -1,4 +1,7 @@
 
+# Ignore time complexity graph
+tc_graph.png
+
 # Ignore graph image for testing
 graph.png
 
