@@ -26,6 +26,7 @@ def generate_graph(start, end, points):
     # Save graph to buffer to be used later
     buf = io.BytesIO()
     plt.savefig(buf, format='png')
+    buf.seek(0)
     return buf
 
 # Generate graph and save to RAM temporarily?
@@ -35,3 +36,6 @@ buffer = generate_graph(10, 100, 10)
 # Save to a file for local testing
 with open('graph.png', 'wb') as file:
     file.write(buffer.read())
+    print("Graph saved as 'graph.png'")
+
+buffer.close()
