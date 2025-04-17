@@ -6,6 +6,7 @@ Brendan Dileo, April 2025
 
 import numpy as np
 import matplotlib.pyplot as plt
+import io
 
 def generate_graph(start, end, points):
     # x vals between start and end with specified num of points
@@ -15,21 +16,22 @@ def generate_graph(start, end, points):
 
     # Creates a figure and plot graph
     plt.figure(figsize=(6, 4))
-    plt.plot(x, y, label='y = x') 
-    plt.title('Basic Graph: y = x')  
-    plt.xlabel('x')  
+    plt.plot(x, y, label='y = x')
+    plt.title('Basic Graph: y = x')
+    plt.xlabel('x')
     plt.ylabel('y')  
-    plt.grid(True)  
+    plt.grid(True)
     plt.legend()
 
-    # Save plot as img
-    plt.savefig('graph.png') 
+    # Save graph to buffer to be used later
+    buf = io.BytesIO()
+    plt.savefig(buf, format='png')
 
-    print("Graph saved as 'graph.png'")
+    return buf
 
-# Test
-start_value = float(input("Enter the start value for x: "))
-end_value = float(input("Enter the end value for x: "))
-num_points = int(input("Enter the number of points to plot: "))
+buf = generate_graph(-10, 10, 100)
 
-generate_graph(start_value, end_value, num_points)
+# Save it to a file for local testing
+with open('generated_graph.png', 'wb') as file:
+    file.write(buf.read())
+    print("Graph saved as 'generated_graph.png'")
