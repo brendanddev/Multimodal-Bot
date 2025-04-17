@@ -1,4 +1,7 @@
 
+# Ignore graph image for testing
+graph.png
+
 # Ignore notes file
 notes.txt
 
