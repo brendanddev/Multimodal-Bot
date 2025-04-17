@@ -27,6 +27,7 @@ class MyClient(discord.Client):
         if message.author == self.user:
             return
         
+        # Command handling
         if message.content.startswith('!'):
             cmd = clean_utterance(message.content)
 
@@ -93,13 +94,20 @@ class MyClient(discord.Client):
                     embed.add_field(name="No roles found", value="No roles are assigned to this server.", inline=False)
                 await message.channel.send(embed=embed)
                 return
+            
+            elif cmd == "latency":
+                latency = round(self.latency * 1000)
+                await message.channel.send(f"Latency: `{latency}ms`")
+                return
+
             else:
                 await message.channel.send("Sorry, I don't recognize that command!")
-
-        utterance = message.content
-        intent = understand(utterance, intents, regex_patterns)
-        response = generate(intent, responses)
-        await message.channel.send(response)
+        # Regular utterance
+        else:
+            utterance = message.content
+            intent = understand(utterance, intents, regex_patterns)
+            response = generate(intent, responses)
+            await message.channel.send(response)
 
 client = MyClient()
 client.run(DISCORD_TOKEN)
