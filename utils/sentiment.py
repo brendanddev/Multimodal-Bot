@@ -6,6 +6,7 @@ Brendan Dileo, April 2025
 """
 
 from nltk.sentiment import SentimentIntensityAnalyzer
+from textblob import TextBlob
 
 def analyze_sentiment(utterance):
     # init
@@ -17,14 +18,28 @@ def analyze_sentiment(utterance):
     
     # Get overall (compound)
     if sentiment_score['compound'] > 0.2:
-        print("Sentiment is positive.")
-        return "positive"
+        sentiment = "positive"
     elif sentiment_score['compound'] < -0.2:
-        print("Sentiment is negative.")
-        return "negative"
+        sentiment = "negative"
     else:
-        print("Sentiment is neutral.")
-        "neutral"
+        sentiment = "neutral"
+    
+    print(f"Sentiment detected by NLTK: {sentiment}")
+
+    # init
+    blob = TextBlob(utterance)
+    # Extract sentiment
+    blob_sentiment = blob.sentiment.polarity
+    # Checks polarity of sentiment to categorize emotion (basic)
+    if blob_sentiment > 0.5:
+            emotion = "happy"
+    elif blob_sentiment < -0.5:
+            emotion = "sad"
+    else:
+            emotion = "neutral"
+    print(f"Emotion detected by TextBlob: {emotion}")
+    
+    return sentiment, emotion
 
 
 if __name__ == "__main__":
