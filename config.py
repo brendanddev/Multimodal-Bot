@@ -12,3 +12,4 @@ from dotenv import load_dotenv
 load_dotenv(dotenv_path="keys/.env")
 
 DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
