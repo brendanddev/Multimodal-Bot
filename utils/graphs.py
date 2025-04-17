@@ -26,12 +26,12 @@ def generate_graph(start, end, points):
     # Save graph to buffer to be used later
     buf = io.BytesIO()
     plt.savefig(buf, format='png')
-
     return buf
 
-buf = generate_graph(-10, 10, 100)
+# Generate graph and save to RAM temporarily?
+buffer = generate_graph(10, 100, 10)
 
-# Save it to a file for local testing
-with open('generated_graph.png', 'wb') as file:
-    file.write(buf.read())
-    print("Graph saved as 'generated_graph.png'")
+# ignore graph already
+# Save to a file for local testing
+with open('graph.png', 'wb') as file:
+    file.write(buffer.read())
