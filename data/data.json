@@ -28,6 +28,5 @@
         "Large Language Models (LLMs) are deep learning models trained on vast amount of text to generate human like responses and perform various language tasks like translation, summarization, and question answering.",
         "Machine Learning (ML) involves algorithms that learn from data to make predictions or decisions. LLMs are a specific type of ML model that focuses on natural language tasks, using large-scale training datasets.",
         "Problem Solving as State Space Search involves modeling problems as a search through different states or configurations, where the goal is to find a path from the initial state to the goal state using various search algorithms."
-
     ]
 }
