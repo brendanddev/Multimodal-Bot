@@ -23,10 +23,10 @@ def understand(utterance, intents, regex_patterns):
     intent = heuristic_match(cleaned_utterance, intents, regex_patterns)
     return intent 
 
-def generate(utterance, intent, responses):
+def generate(intent, responses, utterance=None):
     """ Attempts to return an appropriate response given a users intent """
     if intent == -1:
         print("OpenAI Call")
-        get_openai_response(utterance)
+        return get_openai_response(utterance or "")
     return responses[intent]
 

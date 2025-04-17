@@ -21,7 +21,7 @@ def main():
     while True:
         utterance = input(">>>")
         intent = understand(utterance, intents, regex_patterns)
-        response = generate(utterance, intent, responses)
+        response = generate(intent, responses, utterance)
         print(response)
         print()
 
