@@ -28,4 +28,8 @@ def generate_graph(start, end, points):
     print("Graph saved as 'graph.png'")
 
 # Test
-generate_graph(10, 100, 10)
+start_value = float(input("Enter the start value for x: "))
+end_value = float(input("Enter the end value for x: "))
+num_points = int(input("Enter the number of points to plot: "))
+
+generate_graph(start_value, end_value, num_points)
