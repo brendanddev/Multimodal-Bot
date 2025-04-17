@@ -21,3 +21,11 @@ def generate_graph(start, end, points):
     plt.ylabel('y')  
     plt.grid(True)  
     plt.legend()
+
+    # Save plot as img
+    plt.savefig('graph.png') 
+
+    print("Graph saved as 'graph.png'")
+
+# Test
+generate_graph(10, 100, 10)
