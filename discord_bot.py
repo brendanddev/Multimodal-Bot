@@ -99,7 +99,10 @@ class MyClient(discord.Client):
                 latency = round(self.latency * 1000)
                 await message.channel.send(f"Latency: `{latency}ms`")
                 return
-
+            elif cmd == "graph":
+                print("TODO: GRAPH")
+                return
+            
             else:
                 await message.channel.send("Sorry, I don't recognize that command!")
         # Regular utterance
