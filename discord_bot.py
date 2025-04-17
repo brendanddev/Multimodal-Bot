@@ -108,6 +108,10 @@ class MyClient(discord.Client):
                 return
             # Time complexity graph
             elif cmd == "graph tc":
+               buffer = generate_time_complexity_graph()
+               file = discord.File(fp=buffer, filename="tc_graph.png")
+               await message.channel.send("Here's the **Time Complexity Graph** 📊", file=file)
+               buffer.close()
                return
             else:
                 await message.channel.send("Sorry, I don't recognize that command!")
