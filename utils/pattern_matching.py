@@ -19,7 +19,6 @@ def regex_match(utterance, regex_patterns):
     # Go through each regex pattern, check for a match
     for i, pattern in enumerate(regex_patterns):
         match = re.match(pattern, cleaned)
-        print(f"[DEBUG] Trying pattern {i}: '{pattern}'")      
 
         if match:
             print(f"[MATCH FOUND] Utterance: '{cleaned}' matches pattern {i}: '{pattern}'")                
