@@ -31,7 +31,17 @@ async def handle_image_analysis(message: discord.Message):
         await message.channel.send("Analyzing image...")
 
         result = analyze_image(image_path)
-        await message.channel.send(f"Image Analysis Result:\n{result}")
+
+        # Embed instead of raw text
+        embed = discord.Embed(
+            title="Image Analysis", 
+            description=result,
+            color=discord.Color.dark_blue()
+        )
+
+        embed.set_image(url=f"attachment://{attachment.filename}")
+        await message.channel.send(embed=embed, file=await attachment.to_file())
+
     except Exception as e:
         await message.channel.send(f"Something went wrong while analyzing the image: `{str(e)}`")
     finally:
