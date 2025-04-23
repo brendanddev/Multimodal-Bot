@@ -148,7 +148,8 @@ class MyClient(discord.Client):
                 except Exception as e:
                     await message.channel.send(f"Uh oh! An error occurred while scraping: `{str(e)}`")
                 return
-
+            elif cmd == "analyze":
+                return
             else:
                 await message.channel.send("Sorry, I don't recognize that command!")
         # Regular utterance
