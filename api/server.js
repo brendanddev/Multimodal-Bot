@@ -12,6 +12,7 @@ const express = require('express');
 const sqlite = require('sqlite3').verbose();
 const app = express();
 const port = 3001;
+const cors = require('cors');
 
 // Middleware
 app.use(cors());
@@ -36,19 +37,30 @@ db.run(`
     )
 `);
 
-// Makes GET request to get user XP and level
+// Defines the POST route for adding a user to the database
+app.post('/user', (req, res) => {
+    const { username } = req.body;
+    if (!username) return res.status(400).json({ message: 'Username is required to perform this action!' });
+
+    db.run('INSERT INTO users (username) VALUES (?)', [username], function (err) {
+        if (err) return res.status(500).json({ error: err.message });
+        res.status(201).json({ id: this.lastID, username, xp: 0.0, level: 0 });
+    });
+});
+
+// Defines the GET route for retreiving a user by username
 app.get('/user/:username', (req, res) => {
     const { username } = req.params;
     db.get('SELECT * FROM users WHERE username = ?', [username], (err, row) => {
-      if (err) {
-        res.status(500).json({ error: err.message });
-      } else if (row) {
-        res.json(row);
-      } else {
-        res.status(404).json({ message: 'User not found' });
-      }
+        if (err) {
+            res.status(500).json({ error: err.message });
+        } else if (row) {
+            res.json(row);
+        } else {
+            res.status(404).json({ message: 'User not found' });
+        }
     });
-  });
+});
   
 // Starts the server
 app.listen(port, () => {
