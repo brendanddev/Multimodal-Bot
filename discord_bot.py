@@ -10,7 +10,7 @@ from config import DISCORD_TOKEN
 from utils.process_text import clean_utterance
 from datetime import datetime
 from utils.graphs import generate_graph, generate_time_complexity_graph
-
+from utils.scraper import scrape
 
 # MyClient class def
 class MyClient(discord.Client):
@@ -103,16 +103,52 @@ class MyClient(discord.Client):
             elif cmd == "graph":
                 buffer = generate_graph(10, 100, 10)
                 file = discord.File(fp=buffer, filename="graph.png")
-                await message.channel.send("Heres your **Graph** 📊", file=file)
+                await message.channel.send("Heres your **Graph**", file=file)
                 buffer.close()
                 return
             # Time complexity graph
             elif cmd == "graph tc":
                buffer = generate_time_complexity_graph()
                file = discord.File(fp=buffer, filename="tc_graph.png")
-               await message.channel.send("Here's the **Time Complexity Graph** 📊", file=file)
+               await message.channel.send("Here's the **Time Complexity Graph**", file=file)
                buffer.close()
                return
+            # Web scrape command
+            elif cmd.startswith("scrape"):
+                parts = message.content.split()
+                # Ensure utterance is command followed by url
+                if len(parts) != 2:
+                    await message.channel.send("Usage: `!scrape <URL>`")
+                    return
+                url = parts[1]
+                await message.channel.send("Scraping, please wait.")
+
+                try:
+                    header, paragraph = scrape(url)
+                    if not header and not paragraph:
+                        await message.channel.send("No headlines or paragraphs found.")
+                        return
+                    embed = discord.Embed(title="Scraped Content", color=discord.Color.dark_blue())
+
+                    if header:
+                        embed.add_field(
+                            name="Headlines",
+                            value="\n".join(header[:5]) + ("..." if len(header) > 5 else ""),
+                            inline=False
+                        )
+
+                    if paragraph:
+                        embed.add_field(
+                            name="Paragraphs",
+                            value="\n".join(paragraph[:3]) + ("..." if len(paragraph) > 3 else ""),
+                            inline=False
+                        )
+
+                    await message.channel.send(embed=embed)
+                except Exception as e:
+                    await message.channel.send(f"Uh oh! An error occurred while scraping: `{str(e)}`")
+                return
+
             else:
                 await message.channel.send("Sorry, I don't recognize that command!")
         # Regular utterance

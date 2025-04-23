@@ -57,5 +57,5 @@ def scrape(url):
         return []
 
 # Gamespot URL
-url = "https://www.gamespot.com/news/"
+url = "https://www.nhl.com/news/"
 scrape(url)
