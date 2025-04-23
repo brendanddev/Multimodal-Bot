@@ -12,7 +12,17 @@
         "What are Neural Word Embeddings",
         "What are Large Language Models",
         "Is there a difference between Machine Learning and LLMs",
-        "What is Problem Solving as State Space Search"
+        "What is Problem Solving as State Space Search",
+        "Does TextBlob support translation and language detection",
+        "When should you use rule-based methods over statistical methods",
+        "How do you classify text using NLTK",
+        "Could NumPy be used for training models",
+        "Is TextBlob built on top of NLTK or something else",
+        "Is NLTK better than spaCy",
+        "How does spaCy work",
+        "Who uses TextBlob",
+        "Is sentiment detection important",
+        "Can TextBlob detect sentiment accurately"
     ],
     "answers": [
         "This is a simple bot designed to help answer your questions. Im currently on my first version (v0.0.1), feel free to ask me anything!",
@@ -27,6 +37,16 @@
         "Neural Word Embeddings are a technique used in NLP where words are represented as vectors in a high-dimensional space, capturing semantic relationships between words.",
         "Large Language Models (LLMs) are deep learning models trained on vast amount of text to generate human like responses and perform various language tasks like translation, summarization, and question answering.",
         "Machine Learning (ML) involves algorithms that learn from data to make predictions or decisions. LLMs are a specific type of ML model that focuses on natural language tasks, using large-scale training datasets.",
-        "Problem Solving as State Space Search involves modeling problems as a search through different states or configurations, where the goal is to find a path from the initial state to the goal state using various search algorithms."
+        "Problem Solving as State Space Search involves modeling problems as a search through different states or configurations, where the goal is to find a path from the initial state to the goal state using various search algorithms.",
+        "Yes, TextBlob can detect languages and translate text using Google Translate's API.",
+        "I suggest using rule-based methods when the task has clear patterns, low data availability, or strict precision requirements.",
+        "Use NLTK's NaiveBayesClassifier or other models by extracting features and training on labeled datasets.",
+        "Yes, but it lacks high-level tools, use it for math operations in custom ML models or as a foundation in libraries like TensorFlow.",
+        "TextBlob is built on NLTK and Pattern, combining the strengths of both.",
+        "NLTK is better for teaching and prototyping; spaCy is better for production and speed.",
+        "spaCy uses pre-trained statistical models for tasks like tokenization, tagging, parsing, and named entity recognition.",
+        "TextBlob is often used by students, researchers, and developers for quick NLP tasks and prototypes.",
+        "Yes, it helps businesses understand opinions, feedback, and emotions in text.",
+        "It works well for basic sentiment analysis, but may struggle with sarcasm or complex expressions."
     ]
 }

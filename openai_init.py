@@ -12,9 +12,6 @@ from utils.sentiment import analyze_sentiment
 # Initialize the OpenAI client
 client = OpenAI(api_key=OPENAI_API_KEY)
 
-def determine_intent(utterance):
-    return None
-
 def construct_response(utterance, sentiment, emotion):
     if emotion == "happy":
         tone = "cheerful and positive"
