@@ -1,4 +1,7 @@
 
+# Ignore node modules for backend api
+node_modules/
+
 # Ignore time complexity graph
 tc_graph.png
 
