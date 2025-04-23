@@ -35,7 +35,18 @@ def game_news_scrape_test():
             return []
 
         # Cleans up the scraped data to return only text contents of h2 tags (headlines)
-        return [headline.get_text(strip=True) for headline in headlines if headline.get_text(strip=True)]
+        cleaned_headlines = [headline.get_text(strip=True) for headline in headlines if headline.get_text(strip=True)]
+
+        if cleaned_headlines:
+            print("Top 5 Game News Headlines:")
+            for i, headline in enumerate(cleaned_headlines, 1):
+                print(f"{i}. {headline}")
+        else:
+            print("No headlines to display.")
+
+        return cleaned_headlines
     else:
         print('An error occurred while making the request!')
         return []
+
+game_news_scrape_test()
