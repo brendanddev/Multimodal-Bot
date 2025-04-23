@@ -11,6 +11,7 @@ from utils.process_text import clean_utterance
 from datetime import datetime
 from utils.graphs import generate_graph, generate_time_complexity_graph
 from utils.scraper import scrape
+from utils.image_handler import handle_image_analysis
 
 # MyClient class def
 class MyClient(discord.Client):
@@ -149,6 +150,7 @@ class MyClient(discord.Client):
                     await message.channel.send(f"Uh oh! An error occurred while scraping: `{str(e)}`")
                 return
             elif cmd == "analyze":
+                await handle_image_analysis(message)
                 return
             else:
                 await message.channel.send("Sorry, I don't recognize that command!")
