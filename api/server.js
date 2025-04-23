@@ -61,6 +61,24 @@ app.get('/user/:username', (req, res) => {
         }
     });
 });
+
+// Defines the PUT route to update the users xp and level
+app.put('/user/:username', (req, res) => {
+    const { username } = req.params;
+    const { xp, level } = req.body;
+
+    db.run(
+        'UPDATE users SET xp = ?, level = ? WHERE username = ?',
+        [xp, level, username],
+        function (err) {
+            if (err) return res.status(500).json({ error: err.message });
+            if (this.changes == 0) return res.status(404).json({ message: 'User not found!' });
+            res.json({ message: 'User updated successfully!' });
+        }
+    );
+});
+
+app.delete(
   
 // Starts the server
 app.listen(port, () => {
