@@ -14,7 +14,7 @@ from bs4 import BeautifulSoup       # Web scraping lib
 
 def scrape(url):
     # GET request to url
-    response = requests.get(url)
+    response = requests.get(url, timeout=10)
 
     # Check if response is successful
     if response.status_code == 200:
@@ -57,5 +57,5 @@ def scrape(url):
         return []
 
 # Gamespot URL
-url = "https://www.cbc.ca/news"
+url = "https://www.gamespot.com/news/"
 scrape(url)
