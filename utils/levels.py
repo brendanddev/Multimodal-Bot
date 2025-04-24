@@ -26,4 +26,13 @@ class Level(Enum):
                 break 
 
         return current_level
+    
+    # Determines the users next level and how much xp is needed to reach it
+    @classmethod
+    def get_next_level(cls, xp: int) -> tuple['Level', int] | None:
+        levels = sorted(cls, key=lambda l: l.value)
+        for level in levels:
+            if xp < level.value:
+                return level, level.value - xp
+        return None 
 
