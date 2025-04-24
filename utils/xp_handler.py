@@ -29,3 +29,16 @@ async def fetch_user(username):
             if response.status == 200:
                 return await response.json()
             return None
+    
+# Creates a new user in the backend
+async def create_user(username):
+    # Creates a new session for handling http requests
+    async with aiohttp.ClientSession() as session:
+        # Makes the POST request to the backend sending the username in the req body as json
+        async with session.post(f'{API_URL}/user', json={"username": username}) as response:
+            # Check if an entry was created
+            if response.status == 201:
+                return await response.json()
+            return None
+
+
