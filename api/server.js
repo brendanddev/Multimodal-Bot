@@ -78,7 +78,18 @@ app.put('/user/:username', (req, res) => {
     );
 });
 
-app.delete(
+// Defines the DELETE route for deleting a user
+app.delete('/user/:username', (req, res) => {
+    const { username } = req.params;
+
+    db.run('DELETE FROM users WHERE username = ?', [username], function (err) {
+            if (err) return res.status(500).json({ error: err.message });
+            if (this.changes === 0) return res.status(404).json({ message: 'User not found' });
+            res.json({ message: 'User deleted successfully' });
+        }
+    );
+});
+
   
 // Starts the server
 app.listen(port, () => {
