@@ -32,11 +32,13 @@ async def fetch_user(username):
 
             if response.status == 200:
                 user_data = await response.json()
+
                 # DEBUG
                 print(f"User fetched: {user_data}")
+
                 return await response.json()
             else:
-                print(f"Failed to fetch user {username}, status: {response.status}")
+                print(f"Error: Failed to fetch user {username}, status: {response.status}, response: {await response.text()}")
             return None
     
 # Creates a new user in the backend
@@ -51,7 +53,10 @@ async def create_user(username):
 
             # Check if an entry was created
             if response.status == 201:
+                print(f"User created: {await response.json()}")
                 return await response.json()
+            else:
+                print(f"Error: Failed to create user {username}, status: {response.status}, response: {await response.text()}")
             return None 
 
 # Updates user data in the backend
@@ -65,7 +70,7 @@ async def update_user(username, xp, level):
             f'{API_URL}/user/{username}',
             json={"xp": xp, "level": level}
         ) as response:
-            print(f"Update user status: {response.status}")
+            print(f"Update user status: {response.status}, response: {await response.text()}")
             return response.status == 200
 
 # Adds xp to a user  
@@ -73,27 +78,35 @@ async def add_xp(username, amount):
     user = await fetch_user(username)
 
     # Debug
-    print(f"User fetched for {username}: {user}") 
+    print(f"Fetched user data for {username}: {user}")
 
     if not user:
-        
         print(f"User {username} not found, creating new user.")
-        
         await create_user(username)
         user = await fetch_user(username)
         # Double validation
         if not user:
-            return None 
-        
-        new_xp = user["xp"] + amount
-        new_level = fetch_rank(new_xp)
+            print(f"Double Validation Fail: Failed to create or fetch user {username} after creation attempt.")
+            return None
+    
+    # Update XP and level for both new and existing users
+    new_xp = user["xp"] + amount
+    print(f"New XP after adding {amount}: {new_xp}")
+    
+    new_level = fetch_rank(new_xp)
+    print(f"New Level after adding XP: {new_level}")
 
-        # Debug
-        print(f"New XP: {new_xp}, New Level: {new_level}")
+    if new_level in Level.__members__:
+        print(f"Updating user {username} with new XP {new_xp} and level {new_level}...")
+        success = await update_user(username, new_xp, Level[new_level].value)
 
-        if new_level not in Level.__members__:
-            return None 
+        if success:
+            print(f"Successfully updated user {username}.")
+        else:
+            print(f"Failed to update user {username}!")
+    else:
+        print(f"Invalid level detected: {new_level}.")
+        return None
 
-        await update_user(username, new_xp, Level[new_level].value)
-        return {"username": username, "xp": new_xp, "level": new_level}
+    return {"username": username, "xp": new_xp, "level": new_level}
 
