@@ -39,6 +39,35 @@ async def create_user(username):
             # Check if an entry was created
             if response.status == 201:
                 return await response.json()
-            return None
+            return None 
 
+# Updates user data in the backend
+async def update_user(username, xp, level):
+    async with aiohttp.ClientSession() as session:
+        # Makes a PUT request to the backend to update the users xp/level
+        async with session.put(
+            f'{API_URL}/user/{username}',
+            json={"xp": xp, "level": level}
+        ) as response:
+            return response.status == 200
+
+# Adds xp to a user  
+async def add_xp(username, amount):
+    user = await fetch_user(username)
+
+    if not user:
+        await create_user(username)
+        user = await fetch_user(username)
+        # Double validation
+        if not user:
+            return None 
+        
+        new_xp = user["xp"] + amount
+        new_level = fetch_rank(new_xp)
+
+        if new_level not in Level:
+            return None 
+
+        await update_user(username, new_xp, Level[new_level].value)
+        return {"username": username, "xp": new_xp, "level": new_level}
 
