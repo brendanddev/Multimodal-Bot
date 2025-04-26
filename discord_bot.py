@@ -13,6 +13,8 @@ from utils.graphs import generate_graph, generate_time_complexity_graph
 from utils.scraper import scrape
 from utils.image_handler import handle_image_analysis
 
+from utils.xp_handler import add_xp, fetch_user
+
 # MyClient class def
 class MyClient(discord.Client):
 
@@ -28,6 +30,23 @@ class MyClient(discord.Client):
     async def on_message(self, message):
         if message.author == self.user:
             return
+        
+        username = str(message.author.id)
+        result = await add_xp(username, amount=10)
+        print(f"XP Added Result: {result}")
+
+        if result:
+            level_up_msg = None
+            user_data = await fetch_user(username)
+            print(f"User Data: {user_data}")
+            if result["level"] != user_data["level"]:
+                level_up_msg = f"{message.author.mention}, you leveled up to **{result['level']}**! 🎉"
+                print(f"Level up detected: {result['level']} != {user_data['level']}")
+            # Optional: log or respond
+            print(f"{username} now has {result['xp']} XP and is level {result['level']}")
+
+            if level_up_msg:
+                await message.channel.send(level_up_msg)
         
         # Command handling
         if message.content.startswith('!'):

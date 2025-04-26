@@ -1,4 +1,7 @@
 
+# Ignore database file
+api/xp_system.db
+
 # Ignore node modules for backend api
 node_modules/
 
