@@ -33,3 +33,14 @@ def load_regex_patterns():
     except Exception as e:
             print(f"An unexpected error occurred while loading the patterns: {e}")
     return []
+
+def load_response_data():
+    try:
+        with open("data/intents.json", "r") as file:
+            intents = json.load(file)
+            return intents 
+    except FileNotFoundError:
+            print(f"Error: The file was not found!")
+    except Exception as e:
+            print(f"An unexpected error occurred while loading the patterns: {e}")
+    return []
