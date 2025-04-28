@@ -16,10 +16,6 @@ from openai_init import get_openai_response
 def understand(utterance, intents, regex_patterns):
     """ Processes an utterance to determine if an intent matches"""
     cleaned_utterance = clean_utterance(utterance)
-    ling_info = extract_linguistics(utterance)
-    ling_patterns = match_patterns(utterance)
-    print(ling_info)
-    print(ling_patterns)
     intent = heuristic_match(cleaned_utterance, intents, regex_patterns)
     return intent 
 
