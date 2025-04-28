@@ -12,17 +12,26 @@ from utils.pattern_matching import heuristic_match
 from utils.linguistic_extraction import extract_linguistics
 from utils.linguistic_patterns import match_patterns
 from openai_init import get_openai_response
+from utils.interactions import detect_response
 
 def understand(utterance, intents, regex_patterns):
     """ Processes an utterance to determine if an intent matches"""
     cleaned_utterance = clean_utterance(utterance)
+
+    detected_response = detect_response(cleaned_utterance)
+    if detected_response:
+        return detected_response, None
+
     intent = heuristic_match(cleaned_utterance, intents, regex_patterns)
-    return intent 
+    return None, intent 
 
-def generate(intent, responses, utterance=None):
+def generate(intent, response, responses, utterance=None):
     """ Attempts to return an appropriate response given a users intent """
-    if intent == -1:
-        print("OpenAI Call")
-        return get_openai_response(utterance or "")
-    return responses[intent]
+    if response:
+        return response
+    
+    if intent is not None and intent != -1:
+            return responses[intent]
 
+    print("OpenAI Call")
+    return get_openai_response(utterance or "")

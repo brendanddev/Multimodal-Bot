@@ -20,11 +20,10 @@ def main():
     # basic control loop for terminal interactions
     while True:
         utterance = input(">>>")
-        intent = understand(utterance, intents, regex_patterns)
-        response = generate(intent, responses, utterance)
-        print(response)
+        response, intent = understand(utterance, intents, regex_patterns)
+        reply = generate(intent, response, responses, utterance)
+        print(reply)
         print()
-
 
 if __name__ == "__main__":
     main()
