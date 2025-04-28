@@ -1,0 +1,32 @@
+{
+    "GREETING": {
+        "patterns": ["hello", "hi", "hey", "hiya", "greetings", "whats up"],
+        "responses": [
+            "Hi!",
+            "Hey there!",
+            "Hello, adventurer!",
+            "Greetings!",
+            "Howdy!"
+        ]
+    },
+    "GOODBYE": {
+        "patterns": ["goodbye", "bye", "see you later", "take care", "farewell", "have a good day"],
+        "responses": [
+            "Goodbye!",
+            "See you later!",
+            "Take care!",
+            "Farewell, hero!",
+            "Safe travels!"
+        ]
+    },
+    "THANKS": {
+        "patterns": ["thank you", "thanks", "thx", "much appreciated", "cheers"],
+        "responses": [
+            "You're welcome!",
+            "Anytime!",
+            "Glad to help!",
+            "No problem!",
+            "Happy to assist!"
+        ]
+    }
+}
