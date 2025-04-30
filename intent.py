@@ -9,8 +9,6 @@ Brendan Dileo, April 2025
 
 from utils.process_text import clean_utterance
 from utils.pattern_matching import heuristic_match
-from utils.linguistic_extraction import extract_linguistics
-from utils.linguistic_patterns import match_patterns
 from openai_init import get_openai_response
 from utils.interactions import detect_response
 

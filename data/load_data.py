@@ -22,7 +22,6 @@ def load_json_data():
         print(f"An unexpected error occurred: {e}")
         return [], []
 
-
 def load_regex_patterns():
     try:
         with open("data/fuzzy_regex.txt", "r") as file:
@@ -36,7 +35,7 @@ def load_regex_patterns():
 
 def load_response_data():
     try:
-        with open("data/intents.json", "r") as file:
+        with open("data/interactions.json", "r") as file:
             intents = json.load(file)
             return intents 
     except FileNotFoundError:
