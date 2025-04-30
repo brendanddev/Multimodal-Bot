@@ -1,4 +1,3 @@
-
 # Ignore database file
 api/xp_system.db
 
@@ -14,19 +13,57 @@ graph.png
 # Ignore notes file
 notes.txt
 
-# Ignore keys directory and envrioment files
-keys/
-.env
-*.env
-.env.local
-.env.development
-.env.production
-
 # TODO: ADD WINDOWS FILES IGNORE 
 
 # Ignore macOS files (When developing on macOS)
 .DS_Store
 
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Project specific
+*.png
+keys/
+.env
+.env.local
+
+# Logs
+*.log
+logs/
+
+# OS specific
+.DS_Store
+Thumbs.db
 
 # Ignore python cache files
 __pycache__/

@@ -4,8 +4,9 @@ bot.py
 Brendan Dileo, April 2025
 """
 
-from data.load_data import load_json_data, load_regex_patterns
-from intent import understand, generate
+from multimodal_bot.data.load_data import load_json_data, load_regex_patterns
+from multimodal_bot.core.intent import understand, generate
+
 intents, responses = load_json_data() 
 regex_patterns = load_regex_patterns()
 

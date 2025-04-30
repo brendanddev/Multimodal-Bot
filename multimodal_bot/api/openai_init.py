@@ -5,9 +5,9 @@ Brendan Dileo, April 2025
 """
 
 from openai import OpenAI
-from config import OPENAI_API_KEY
-from utils.dialog_management import read_conversation_history, save_conversation_history
-from utils.sentiment import analyze_sentiment
+from multimodal_bot.config.config import OPENAI_API_KEY
+from multimodal_bot.utils.dialog_management import read_conversation_history, save_conversation_history
+from multimodal_bot.utils.sentiment import analyze_sentiment
 
 # Initialize the OpenAI client
 client = OpenAI(api_key=OPENAI_API_KEY)

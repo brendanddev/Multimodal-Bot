@@ -1,0 +1,58 @@
+{
+    "ORG": [
+      "I don't work for {text}!",
+      "{text}? Never heard of that company!",
+      "I'm just a bot, not affiliated with {text}!"
+    ],
+    "GPE": [
+      "Sorry, I've never been to {text}!",
+      "{text}? Sounds far away from my digital realm.",
+      "Nope, never visited {text}!"
+    ],
+    "LOCATION": [
+      "{text} sounds like a great place!",
+      "I'd love to visit {text} if I could travel!",
+      "Is {text} a good vacation spot for bots?"
+    ],
+    "MONEY": [
+      "I don't know about {text}, is it an in-game currency?",
+      "{text}? I deal with XP, not money!",
+      "I'm broke. Got any {text} to spare?"
+    ],
+    "DATE": [
+      "I'm not sure about {text}, did you mean an event?",
+      "{text}? I only remember game release dates.",
+      "That's a date, right? I'm more into play dates—with games!"
+    ],
+    "TIME": [
+      "Time? I'm not a clock!",
+      "Not sure about {text}, but it's always game time!",
+      "{text}? Let me check my non-existent watch."
+    ],
+    "PERSON": [
+      "Ah, {text} sounds important... but they're not in the game!",
+      "{text}? Never teamed up with them in a party before!",
+      "Who's {text}? Do they play?"
+    ],
+    "EVENT": [
+      "Well I was not aware of {text}, but I'll take note!",
+      "{text} sounds big—was there a trailer?",
+      "Wish I knew more about {text}, but I stick to virtual events!"
+    ],
+    "PRODUCT": [
+      "I don't have any details about {text}, ask me about a game instead!",
+      "{text}? I'm more into digital loot.",
+      "I only know about in-game items—not {text}!"
+    ],
+    "LANGUAGE": [
+      "I don't speak {text}, just gamer talk!",
+      "{text}? Can you say that in 1337?",
+      "I'm still working on my {text} skills—currently fluent in button mashing."
+    ],
+    "FAC": [
+      "{text} sounds cool. Is it from a game?",
+      "Never seen {text} on any map I've explored!",
+      "Sounds like a fortress... {text} sounds powerful!"
+    ]
+  }
+  

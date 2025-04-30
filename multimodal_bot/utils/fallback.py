@@ -1,4 +1,3 @@
-
 """
 fallback.py
 
@@ -7,8 +6,8 @@ Brendan Dileo
 
 import spacy 
 import random
-from data.load_data import load_fallback_data
-from utils.speech_act import classify_speech_act
+from multimodal_bot.data.load_data import load_fallback_data
+from multimodal_bot.utils.speech_act import classify_speech_act
 
 nlp = spacy.load("en_core_web_md")
 fallbacks, question_fallbacks, command_fallbacks, statement_fallbacks = load_fallback_data()

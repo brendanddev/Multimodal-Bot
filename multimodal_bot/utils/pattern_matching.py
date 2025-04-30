@@ -4,11 +4,15 @@ pattern_matching.py
 Brendan Dileo, April 2025
 """
 
-from utils.process_text import clean_utterance
 import regex as re
 from fuzzywuzzy import fuzz
 import Levenshtein as levenshtein
 
+def clean_utterance(utterance):
+    """ Cleans the users utterance from non word cgaracrers and spacing """
+    clean = re.sub(r'[^\w\s]', '', utterance)               
+    clean = re.sub(r'\s+', ' ', clean).strip()             
+    return clean.lower()
 
 def regex_match(utterance, regex_patterns):
     """ Performs a basic string pattern match to find matching response to utterance """
