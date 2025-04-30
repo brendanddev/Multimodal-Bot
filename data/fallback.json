@@ -1,0 +1,22 @@
+{
+    "fallbacks": [
+        "Im not quite sure about that.",
+        "I dont know how to respond to that."
+    ],
+    "question_fallbacks": [
+        "Thats a great question, but I dont have a answer.",
+        "I dont know, but Im happy to learn!"
+    ],
+    "command_fallbacks": [
+        "Im not sure how to do that.",
+        "I cant complete that request.",
+        "I cannot complete that request.",
+        "Sorry, I dont know how to do that."
+    ],
+    "statement_fallbacks": [
+        "Interesting!",
+        "That's something to think about.",
+        "Thanks for sharing. I'm not sure how to respond, though.",
+        "I see, want to chat about something else?"
+    ]
+}
