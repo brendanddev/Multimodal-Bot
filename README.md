@@ -1,6 +1,6 @@
 # Multimodal Bot
-
 A versatile chatbot that can handle text and image interactions through multiple interfaces.
+This project implements a sophisticated bot that can process both text and umage inputs, providing intelligent responses.
 
 ## Features
 
