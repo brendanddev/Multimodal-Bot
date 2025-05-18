@@ -1,9 +1,24 @@
 # Multimodal Bot
-This chatbot was built from the ground up using Python, regex, and spaCy, with no reliance on large language models or internet APIs for fallback responses or dialog continuity. It reflects an understanding of NLP fundamentals, including Named Entity Recognition, speech act classification, and rule-based matching.
-
-It has been expanded on to build an even better bot, a sophisticated multimodal chatbot system that combines natural language processing, image processing, web scraping, and advanced analytics capabilities. This project implements a versatile bot that can process both text and image inputs, providing intelligent responses through various platforms while maintaining user engagement through an XP system and advanced analytics.
+This chatbot began as a simple FAQ bot built from the ground up using Python and basic pattern matching techniques. Through continous development, the bot has evolved into a sophisticated multimodal system that combines various approaches to natural language processing and interaction.
 
 ## Features
+- Rule-based pattern matching
+- Regular Expression pattern matching
+- Fuzzy regular expression and string matching
+- Use of Levenshtein and Heuristic pattern matching
+- Named Entity Recognition
+- Speech Act Classification
+- Sentiment Analysis
+- TF-IDF Similarity Processing
+- Dialog Management
+- Fallback Response System
+- OpenAI Integration for fallback enhancement and custom prompt engineering
+- Image Proccesing using OpenAI
+- Web Scraping
+- Data Visualization
+- Platform Integration
+- Custom XP System
+
 
 ## Installation
 1. Clone the repository:
