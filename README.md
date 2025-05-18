@@ -19,7 +19,6 @@ This chatbot began as a simple FAQ bot built from the ground up using Python and
 - Platform Integration
 - Custom XP System
 
-
 ## Installation
 1. Clone the repository:
    ```bash
@@ -58,3 +57,12 @@ This chatbot began as a simple FAQ bot built from the ground up using Python and
    ```
 
 ## Acknowledgements
+- **SpaCy**: For NLP and entity recognition capabilities
+- **Regex**: For advanced pattern matching
+- **FuzzyWuzzy**: For fuzzy string matching
+- **Scikit-learn**: For TF-IDF and machine learning
+- **NumPy**: For numerical computing and graphs
+- **BeautifulSoup**: For web scraping capabilities
+- **Discord API**: For bot integration
+- **SQLite**: For data persistence
+- **Node.js**: For XP system backend
