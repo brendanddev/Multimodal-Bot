@@ -1,5 +1,9 @@
 # Multimodal Bot
-A sophisticated multimodal chatbot system that combines natural language processing, image processing, web scraping, and advanced analytics capabilities. This project implements a versatile bot that can process both text and image inputs, providing intelligent responses through various platforms while maintaining user engagement through an XP system and advanced analytics.
+This chatbot was built from the ground up using Python, regex, and spaCy, with no reliance on large language models or internet APIs for fallback responses or dialog continuity. It reflects an understanding of NLP fundamentals, including Named Entity Recognition, speech act classification, and rule-based matching.
+
+It has been expanded on to build an even better bot, a sophisticated multimodal chatbot system that combines natural language processing, image processing, web scraping, and advanced analytics capabilities. This project implements a versatile bot that can process both text and image inputs, providing intelligent responses through various platforms while maintaining user engagement through an XP system and advanced analytics.
+
+## Features
 
 ## Installation
 1. Clone the repository:
